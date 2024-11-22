@@ -1,0 +1,88 @@
+ .slider-container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Image wrapper to hold the sliding images */
+        .slider-images {
+            display: flex;
+            flex-wrap: nowrap;
+            animation: slide 8s linear infinite; /* Infinite slow scrolling */
+        }
+
+        /* Each individual slide */
+        .slider-images .slide {
+            position: relative;
+            margin-right: 30px; /* Gap between images */
+            flex-shrink: 0; /* Prevent images from shrinking */
+            transition: transform 0.3s ease; /* Transition for hover effect */
+        }
+
+        /* Styling for images */
+        .slider-images img {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Overlay text for hover effect */
+        .overlay-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Show overlay text on hover */
+        .slide:hover .overlay-text {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Enlarge image slightly on hover */
+        .slide:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Infinite scrolling animation */
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Optional: Navigation buttons for manual control */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 24px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Hover effect for navigation buttons */
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
